@@ -27,7 +27,7 @@ export default function FileDownload({
       <button
         onClick={handleSubmit}
         disabled={isDownloading || !code.trim() || code.trim().length !== 4}
-        className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 disabled:opacity-80 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+        className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 disabled:opacity-80 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2 cursor-pointer"
       >
         {isDownloading ? (
           <>
