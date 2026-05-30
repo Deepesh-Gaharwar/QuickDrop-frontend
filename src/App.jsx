@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./components/LandingPage";
+//import ShareApp from "./components/ShareApp";
 
-const App = () => {
+export default function App() {
   return (
-    <div>App</div>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
 
-export default App;
+        {/* <Route path="/app" element={<ShareApp />} /> */}
+
+      </Routes>
+    </Router>
+  );
+}
