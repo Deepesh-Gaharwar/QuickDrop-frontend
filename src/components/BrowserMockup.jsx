@@ -163,19 +163,19 @@ export default function BrowserMockup({
   children,
 }) {
   return (
-    <div className="w-full max-w-3xl rounded-xl overflow-hidden shadow-2xl border border-[#d1d1d1]">
+    <div className="w-full max-w-3xl rounded-xl overflow-hidden shadow-2xl border border-[#d1d1d1] text-xs">
       {/* Safari Bar */}
-      <div className="bg-[#f0f0f0] h-[46px] flex items-center px-3.5 gap-2.5 border-b border-[#d1d1d1]">
+      <div className="bg-[#f0f0f0] h-[36px] sm:h-[46px] flex items-center px-2 sm:px-3.5 gap-1.5 sm:gap-2.5 border-b border-[#d1d1d1]">
         <div className="flex items-center gap-2.5 flex-shrink-0">
-          <div className="flex gap-[7px] items-center">
-            <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-            <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-            <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+          <div className="flex gap-[5px] sm:gap-[7px] items-center">
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-[#ff5f57]" />
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-[#febc2e]" />
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-[#28c840]" />
           </div>
-          <span className="text-[#6b6b6b] flex items-center cursor-pointer">
+          <span className="text-[#6b6b6b] hidden sm:flex items-center cursor-pointer">
             <IconSidebar />
           </span>
-          <div className="flex items-center text-[#6b6b6b]">
+          <div className="hidden sm:flex items-center text-[#6b6b6b]">
             <IconChevronLeft />
             <IconChevronRight />
           </div>
@@ -185,17 +185,17 @@ export default function BrowserMockup({
           <span className="text-[#6b6b6b] flex items-center">
             <IconShield />
           </span>
-          <div className="bg-[#e0e0e0] rounded-lg h-[30px] flex items-center px-3 gap-2 w-[280px]">
-            <span className="flex-1 text-[12.5px] text-[#1f1f1f] text-center font-medium">
+          <div className="bg-[#e0e0e0] rounded-md h-[24px] sm:h-[30px] flex items-center px-2 sm:px-3 gap-1 sm:gap-2 w-full max-w-[280px] min-w-0">
+            <span className="flex-1 text-[10px] sm:text-[12.5px] text-[#1f1f1f] text-center font-medium truncate">
               {url}
             </span>
-            <span className="text-[#6b6b6b] flex items-center">
+            <span className="text-[#6b6b6b] hidden sm:flex items-center">
               <IconRefresh />
             </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-3 flex-shrink-0 text-[#6b6b6b]">
+        <div className="hidden sm:flex items-center gap-3 flex-shrink-0 text-[#6b6b6b]">
           <IconDownload />
           <IconShare />
           <IconPlus />
