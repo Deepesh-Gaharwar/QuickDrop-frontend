@@ -56,8 +56,8 @@ export default function LandingPage() {
             <div className="relative">
               <BrowserMockup
                 url="quickdrop.app"
-                videoSrc="/demo.mp4"
-                posterSrc="/demo-thumbnail.png"
+                videoSrc="/QuickDrop_Demo.mp4"
+                posterSrc="/thumbnail.png"
               />
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
 function IconSidebar() {
   return (
@@ -162,6 +162,17 @@ export default function BrowserMockup({
   posterSrc,
   children,
 }) {
+
+  const videoRef = useRef(null);
+  const [playing, setPlaying] = useState(false);
+
+  function togglePlay() {
+  const v = videoRef.current;
+   if (!v) return;
+    if (v.paused) { v.play(); setPlaying(true); }
+    else { v.pause(); setPlaying(false); }
+  }
+
   return (
     <div className="w-full max-w-3xl rounded-xl overflow-hidden shadow-2xl border border-[#d1d1d1] text-xs">
       {/* Safari Bar */}
@@ -206,12 +217,32 @@ export default function BrowserMockup({
       {/* Screen */}
       <div className="relative bg-[#f0f4ff]" style={{ aspectRatio: "16/9" }}>
         {videoSrc ? (
-          <video
-            src={videoSrc}
-            poster={posterSrc}
-            controls
-            className="w-full h-full object-cover"
-          />
+          <div className="relative w-full h-full">
+            <video
+              ref={videoRef}
+              src={videoSrc}
+             poster={posterSrc}
+              className="w-full h-full object-cover"
+              onEnded={() => setPlaying(false)}
+            />
+           <button
+              onClick={togglePlay}
+              className="absolute inset-0 w-full h-full flex items-center justify-center group cursor-pointer bg-transparent border-0"
+            >
+              <div className={`w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg transition-all duration-200 group-hover:scale-110 group-hover:bg-white ${playing ? "opacity-0 group-hover:opacity-100" : "opacity-100"}`}>
+                {playing ? (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#1d4ed8">
+                    <rect x="6" y="4" width="4" height="16" rx="1" />
+                    <rect x="14" y="4" width="4" height="16" rx="1" />
+                  </svg>
+                ) : (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#1d4ed8">
+                    <polygon points="6,3 20,12 6,21" />
+                  </svg>
+               )}
+              </div>
+            </button>
+          </div>
         ) : children ? (
           children
         ) : (
